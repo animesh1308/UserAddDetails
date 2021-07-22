@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">UserAddDetails</string>
+    <dimen name="margin_for_allside">15dp</dimen>
+    <dimen name="et_mrgin_top">30dp</dimen>
+    <dimen name="et_text_size">25dp</dimen>
+    <string-array name="gender">
+        <item>Select Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+        <item>TransGender</item>
+    </string-array>
+</resources>

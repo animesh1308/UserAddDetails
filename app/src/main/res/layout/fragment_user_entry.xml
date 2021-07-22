@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/userentry_background_drawable"
+    android:id="@+id/fr_user_entry">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/sc_user_entry"
+        android:layout_above="@+id/bt_user_save"
+        >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/margin_for_allside"
+        android:layout_marginTop="@dimen/margin_for_allside"
+        android:layout_marginBottom="@dimen/margin_for_allside"
+        android:layout_marginLeft="@dimen/margin_for_allside"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:civ_border_width="1dp"
+            app:civ_border_color="@color/grey"
+            android:id="@+id/img_user_entry"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_for_allside"
+            android:src="@drawable/ic_baseline_person_24"
+            app:civ_circle_background_color="@color/white"
+        >
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_entry_username"
+            android:layout_below="@+id/img_user_entry"
+            android:layout_marginTop="@dimen/et_mrgin_top"
+            android:background="@drawable/edittext_drawable"
+            android:hint="    User Name"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:textSize="@dimen/et_text_size"
+            android:inputType="text"
+            android:lines="1"
+        />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_entry_usermob"
+            android:layout_below="@+id/et_entry_username"
+            android:layout_marginTop="@dimen/et_mrgin_top"
+            android:background="@drawable/edittext_drawable"
+            android:drawableLeft="@drawable/ic_baseline_contact_phone_24"
+            android:hint="    Mobile no."
+            android:textSize="@dimen/et_text_size"
+            android:inputType="number"
+            android:lines="1"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_entry_userdob"
+            android:layout_below="@+id/et_entry_usermob"
+            android:layout_marginTop="@dimen/et_mrgin_top"
+            android:background="@drawable/edittext_drawable"
+            android:hint="    D.O.B"
+            android:drawableLeft="@drawable/ic_baseline_calendar_today_24"
+            android:textSize="@dimen/et_text_size"
+            android:inputType="number"
+            android:lines="1"
+            />
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sp_user_gender"
+            android:layout_below="@+id/et_entry_userdob"
+            android:layout_marginTop="@dimen/et_mrgin_top"
+            />
+    </RelativeLayout>
+    </ScrollView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Save"
+        android:id="@+id/bt_user_save"
+        android:layout_marginLeft="@dimen/margin_for_allside"
+        android:layout_marginRight="@dimen/margin_for_allside"
+        android:background="@drawable/button_drawable"
+        />
+</RelativeLayout>

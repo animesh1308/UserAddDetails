@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview_layout"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="5dp"
+    app:cardMaxElevation="5dp"
+    app:cardUseCompatPadding="true"
+    app:cardPreventCornerOverlap="true"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/rcview_user_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_baseline_person_24"
+            android:layout_alignParentLeft="true"
+            app:civ_border_color="@color/grey"
+            app:civ_border_width="1dp"
+            />
+
+        <TextView
+            android:id="@+id/rcv_usrnm"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@+id/rcview_user_image"
+            android:textSize="@dimen/et_text_size"
+
+
+            />
+        <TextView
+            android:id="@+id/rcv_mobno"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@+id/rcview_user_image"
+            android:textSize="@dimen/et_text_size"
+            android:layout_below="@+id/rcv_usrnm"
+            />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

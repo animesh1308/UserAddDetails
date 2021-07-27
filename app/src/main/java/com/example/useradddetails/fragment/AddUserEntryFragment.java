@@ -21,10 +21,17 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.useradddetails.R;
+import com.example.useradddetails.database.UserEntity;
+import com.example.useradddetails.utility.ImageConverter;
+import com.example.useradddetails.viewmodel.UserViwModel;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Calendar;
+import java.util.Observable;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 
 public class AddUserEntryFragment extends Fragment {
 
@@ -36,6 +43,8 @@ public class AddUserEntryFragment extends Fragment {
     Integer birthMonth,birthDate,birthYear,genderpos=0,CAM_REQUEST=111;
     DatePickerDialog datePickerDialog;
     Bitmap captureImage;
+    byte[] saveImage=null;
+    UserViwModel userViwModel;
 
     @Override
     public View onCreateView( LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
@@ -46,6 +55,7 @@ public class AddUserEntryFragment extends Fragment {
         etDob=view.findViewById(R.id.et_entry_userdob);
         spGender=view.findViewById(R.id.sp_user_gender);
         userImage=view.findViewById(R.id.img_user_entry);
+        btSaveUser=view.findViewById(R.id.bt_user_save);
 
         etDob.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +101,30 @@ public class AddUserEntryFragment extends Fragment {
                 startActivityForResult(camintent,CAM_REQUEST);
             }
         });
+
+        btSaveUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String savename=etUsername.getText().toString();
+                String savemobile=etMobileno.getText().toString();
+                String savedob=etDob.getText().toString();
+                String saveGender=spGender.getSelectedItem().toString().trim();
+                if (captureImage != null){
+                    saveImage= ImageConverter.imageToByteArray(captureImage);
+                }
+                UserEntity entity=new UserEntity();
+                entity.setUser_name(savename);
+                entity.setMobile_no(savemobile);
+                entity.setDob(savedob);
+                entity.setGender(saveGender);
+                entity.setImage(saveImage);
+                userViwModel=new ViewModelProvider(getActivity()).get(UserViwModel.class);
+                userViwModel.insert(entity);
+
+            }
+        });
+
+
         return view;
     }
 

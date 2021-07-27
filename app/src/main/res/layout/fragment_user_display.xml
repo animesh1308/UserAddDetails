@@ -2,12 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fr_user_display">
-
+    >
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_search"
+        android:background="@drawable/edittext_drawable"
+        android:drawableLeft="@drawable/ic_baseline_search_24"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@id/fr_user_display"
+        android:id="@+id/fr_user_display"
+        android:layout_below="@+id/et_search"
         />
 
 </RelativeLayout>

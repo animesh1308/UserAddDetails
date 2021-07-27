@@ -5,14 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleRegistry;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.useradddetails.R;
 import com.example.useradddetails.database.UserEntity;
 import com.example.useradddetails.utility.ImageConverter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -40,7 +43,7 @@ public class UserRecyclerAdapter extends RecyclerView.Adapter<UserRecyclerAdapte
         UserEntity list=userlist.get(position);
         holder.username.setText(list.getUser_name());
         holder.usermobile.setText(list.getMobile_no());
-        if(list.getImage()==null) {
+        if(list.getImage()!=null) {
             holder.userImage.setImageBitmap(ImageConverter.byteArrayToImage(list.getImage()));
         }
     }
@@ -50,8 +53,13 @@ public class UserRecyclerAdapter extends RecyclerView.Adapter<UserRecyclerAdapte
         return userlist.size();
     }
 
+    public void filterlist(List<UserEntity> userlist) {
+        this.userlist=userlist;
+        notifyDataSetChanged();
+    }
+
     public class AddUserViewHolder extends RecyclerView.ViewHolder{
-        EditText username,usermobile;
+        TextView username,usermobile;
         CircleImageView userImage;
 
         public AddUserViewHolder(View itemView) {
